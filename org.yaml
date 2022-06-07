@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: josef-corp
+  description: My private little Corporation
+  links:
+    - url: http://www.auer.biz/
+      title: Website
+    - url: https://meta.wikimedia.org/wiki/
+      title: Intranet
+spec:
+  type: organization
+  profile:
+    displayName: auer.biz
+    email: josef@auer.biz
+    picture: https://photos.app.goo.gl/sGjj9Y9Mbdknk2Ue9
+  children: [coreteam]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: coreteam
+  description: That's the core team
+spec:
+  targets:
+    - ./coreteam.yaml

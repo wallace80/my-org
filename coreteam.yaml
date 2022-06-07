@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: coreteam
+  description: Core Team
+spec:
+  type: team
+  profile:
+    displayName: Core Team
+    email: core@auer.biz
+    picture: https://avatars.dicebear.com/api/identicon/team-a@example.com.svg?background=%23fff&margin=25
+  parent: backstage
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: josef.auer
+spec:
+  profile:
+    displayName: "Josef Auer"
+    email: josef.auer.extern@axelspringer.com
+    picture: https://avatars.dicebear.com/api/avataaars/breanna-davison@example.com.svg?background=%23fff
+  memberOf: [coreteam]
