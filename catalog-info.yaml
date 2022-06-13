@@ -73,9 +73,18 @@ spec:
     - recipe-api
 ---
 apiVersion: backstage.io/v1
-kind: Domain
+kind: Resource
 metadata:
-  name: recipes
-  description: Everything about recipes
+  name: recipe-db
+  description: Stores all recipes
 spec:
+  type: database
   owner: core-team
+  system: infra
+#apiVersion: backstage.io/v1
+#kind: Domain
+#metadata:
+#  name: recipes
+#  description: Everything about recipes
+#spec:
+#  owner: core-team
