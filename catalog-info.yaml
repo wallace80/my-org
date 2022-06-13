@@ -1,0 +1,51 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: josef
+spec:
+  profile:
+    displayName: Josef Auer
+    email: josef.auer@example.com
+    picture: https://example.com/staff/jenny-with-party-hat.jpeg
+  memberOf: [core-team, employees]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: recipes
+  description: Everything about recipes
+spec:
+  owner: core-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: users
+  description: Everything about recipes
+spec:
+  owner: core-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: recipe-crud
+  description: Create, Read Update Delete Recipes
+spec:
+  owner: baby-girls
+  domain: recipes
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: recipe-ingestion
+  description: Storing a recipe
+spec:
+  type: service
+  lifecycle: production
+  owner: core-team
+  system: recipe-crud
+  dependsOn:
+    - resource:default/recipe-db
+  providesApis:
+    - recipe-api
