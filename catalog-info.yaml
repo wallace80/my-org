@@ -49,3 +49,33 @@ spec:
     - resource:default/recipe-db
   providesApis:
     - recipe-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: recipe-search
+  description: Searching for a recipe
+spec:
+  type: service
+  lifecycle: test
+  owner: core-team
+  system: recipe-crud
+  dependsOn:
+    - resource:default/recipe-db
+  providesApis:
+    - recipe-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: recipe-recommendation
+  description: Recommending a recipe
+spec:
+  type: service
+  lifecycle: production
+  owner: core-team
+  system: recipe-crud
+  dependsOn:
+    - resource:default/recipe-db
+  providesApis:
+    - recipe-api
