@@ -1,14 +1,14 @@
----
-apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: josef
-spec:
-  profile:
-    displayName: Josef Auer
-    email: josef.auer@example.com
-    picture: https://example.com/staff/jenny-with-party-hat.jpeg
-  memberOf: [core-team, employees]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: User
+#metadata:
+#  name: josef
+#spec:
+#  profile:
+#    displayName: Josef Auer
+#    email: josef.auer@example.com
+#    picture: https://example.com/staff/jenny-with-party-hat.jpeg
+#  memberOf: [core-team, employees]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Domain
