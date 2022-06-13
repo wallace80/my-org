@@ -11,6 +11,4 @@ spec:
   system: artist-engagement-portal
   dependsOn:
     - resource:default/artists-db
-  providesApis:
-    - artist-api
 ---
