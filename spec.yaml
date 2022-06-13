@@ -14,17 +14,3 @@ spec:
   providesApis:
     - artist-api
 ---
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: artist-api
-  description: Retrieve artist details
-spec:
-  type: openapi
-  lifecycle: production
-  owner: artist-relations-team
-  system: artist-engagement-portal
-  definition:
-    $text: https://petstore.swagger.io/v2/swagger.json
----
-
