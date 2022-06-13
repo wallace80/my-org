@@ -13,14 +13,6 @@
 #apiVersion: backstage.io/v1alpha1
 #kind: Domain
 #metadata:
-#  name: recipes
-#  description: Everything about recipes
-#spec:
-#  owner: core-team
-#---
-#apiVersion: backstage.io/v1alpha1
-#kind: Domain
-#metadata:
 #  name: users
 #  description: Everything about recipes
 #spec:
@@ -79,3 +71,11 @@ spec:
     - resource:default/recipe-db
   providesApis:
     - recipe-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: recipes
+  description: Everything about recipes
+spec:
+  owner: core-team
