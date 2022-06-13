@@ -1,5 +1,5 @@
 #---
-#apiVersion: backstage.io/v1alpha1
+#apiVersion: backstage.io/v1
 #kind: User
 #metadata:
 #  name: josef
@@ -10,7 +10,7 @@
 #    picture: https://example.com/staff/jenny-with-party-hat.jpeg
 #  memberOf: [core-team, employees]
 #---
-#apiVersion: backstage.io/v1alpha1
+#apiVersion: backstage.io/v1
 #kind: Domain
 #metadata:
 #  name: users
@@ -18,7 +18,7 @@
 #spec:
 #  owner: core-team
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: backstage.io/v1
 kind: System
 metadata:
   name: recipe-crud
@@ -27,7 +27,7 @@ spec:
   owner: baby-girls
   domain: recipes
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: backstage.io/v1
 kind: Component
 metadata:
   name: recipe-ingestion
@@ -42,7 +42,7 @@ spec:
   providesApis:
     - recipe-api
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: backstage.io/v1
 kind: Component
 metadata:
   name: recipe-search
@@ -57,7 +57,7 @@ spec:
   providesApis:
     - recipe-api
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: backstage.io/v1
 kind: Component
 metadata:
   name: recipe-recommendation
@@ -72,7 +72,7 @@ spec:
   providesApis:
     - recipe-api
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: backstage.io/v1
 kind: Domain
 metadata:
   name: recipes
