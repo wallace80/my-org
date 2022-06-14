@@ -91,7 +91,7 @@ metadata:
   name: recipe-recommendation
   description: Recommending a recipe
   tags:
-    - goLang
+    - golang
     - acceptancetest
     - nofu
 spec:
