@@ -47,6 +47,14 @@ kind: Component
 metadata:
   name: recipe-site
   description: The website we show our customers
+  links:
+    - url: https://auer.biz
+      title: The main site
+      icon: dashboard
+  tags:
+    - "React"
+    - "Yarn"
+    - "Jest"
 spec:
   type: website
   lifecycle: production
@@ -60,6 +68,10 @@ kind: Component
 metadata:
   name: recipe-search
   description: Searching for a recipe
+  tags:
+    - "Typescript"
+    - "Jest"
+    - "Behave"
 spec:
   type: service
   lifecycle: test
@@ -76,6 +88,10 @@ kind: Component
 metadata:
   name: recipe-recommendation
   description: Recommending a recipe
+  tags:
+    - "GoLang"
+    - "Acceptance Test"
+    - "No fu"
 spec:
   type: service
   lifecycle: production
@@ -91,6 +107,14 @@ kind: Resource
 metadata:
   name: recipe-db
   description: Stores all recipes
+  links:
+    - url: https://aurora.aws.login.something
+      title: Aurora Login
+      icon: database
+  tags:
+    - "Aurora"
+    - "Postgress"
+    - "Something else"
 spec:
   type: database
   owner: core-team
