@@ -45,6 +45,19 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
+  name: recipe-site
+  description: The website we show our customers
+spec:
+  type: website
+  lifecycle: production
+  owner: core-team
+  system: recipe-crud
+  consumesApis:
+    - recipe-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
   name: recipe-search
   description: Searching for a recipe
 spec:
@@ -54,6 +67,7 @@ spec:
   system: recipe-crud
   dependsOn:
     - resource:default/recipe-db
+    - resource:default/recipe-search-bucket
   providesApis:
     - recipe-api
 ---
@@ -77,6 +91,16 @@ kind: Resource
 metadata:
   name: recipe-db
   description: Stores all recipes
+spec:
+  type: database
+  owner: core-team
+  system: infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: recipe-search-bucket
+  description: Search Index for Recipes
 spec:
   type: database
   owner: core-team
