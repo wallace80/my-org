@@ -19,6 +19,21 @@
 #  owner: core-team
 ---
 apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: core-team
+  description: The infra business unit
+spec:
+  type: team
+  profile:
+    displayName: Core Team
+    email: coreteam@example.com
+    picture: https://example.com/groups/bu-infrastructure.jpeg
+  parent: ops
+  children: [backstage, other]
+  members: [jdoe]
+---
+apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: recipe-crud
