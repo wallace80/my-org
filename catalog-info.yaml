@@ -157,19 +157,8 @@ spec:
   lifecycle: production
   owner: api-team
   system: apis
-  definition: |
-    openapi: "3.0.0"
-    info:
-      version: 1.0.0
-      title: Artist API
-      license:
-        name: MIT
-    servers:
-      - url: http://artist.spotify.net/v1
-    paths:
-      /artists:
-        get:
-          summary: List all artists
+  definition:
+    $text: https://github.com/wallace80/my-org/blob/main/docs/openapi.yaml
 
 #apiVersion: backstage.io/v1alpha1
 #kind: Domain
