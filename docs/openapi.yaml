@@ -1,0 +1,186 @@
+openapi: '3.0.2'
+info:
+  title: Recipe service
+  version: '1.0'
+  description: "This can be long text **inlcuding** more text"
+  contact:
+    email: api@me.com
+    name: "The API Group for this"
+    url: https://api.group.com/docs
+  license:
+    name: Something
+    url: https://api.group.com/docs
+servers:
+  - url: https://api.server.test/v1
+    description: Production
+  - url: http://localhost:3300
+    description: Development
+
+
+components:
+
+  parameters:
+    recipeID:
+      description: "An ID of an recipe, that you already know"
+      name: recipeID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: "0c30dae4-1837-4f5d-8c39-c73bf92954c8"
+        description: "Unique identifier for this ingridient"
+
+  requestBodies:
+    searchReqBody:
+      description: "Something about the request body"
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/SearchBodySchema' 
+  responses:
+    recipeArray:
+      description: "A list of Recipes"         
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Recipe'
+            
+  schemas:
+    SearchBodySchema:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "Steak"
+        ingridient:
+          type: string
+          example: "Beef"
+    NewRecipe:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "Mad hatter super tea"
+          description: "A short title for the recipe no longer than 255 characters"
+        description:
+          type: string
+          example: "Will give you the power to grow and shrink at will"
+        ingridients:
+          type: array
+          items:
+            $ref: '#/components/schemas/IngridientObject' 
+    Recipe:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/NewRecipe'
+      properties:
+        id:
+          type: string
+          example: "0c30dae4-1837-4f5d-8c39-c73bf92954c8"
+          description: "Unique identifier for this ingridient"
+    NewIngridient:
+      type: object
+      properties:
+        name: 
+          type: string
+        kcal:
+          type: integer
+          example: 21
+          description: "The amount of kcal in 100g of this ingridient"
+        carbs:
+          type: integer
+          example: 42
+          description: "The amount of carbs per 100g of this ingridient"
+        fat:
+          type: integer
+          example: 84
+          description: "The amount of fat per 100g of this ingridient"
+        description:
+          type: string
+          example: "Gold is a rare ingridient, that is mostly used to show off"
+    Ingridient:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/NewIngridient'
+      properties:
+        id:
+          type: string
+          example: "0c30dae4-1837-4f5d-8c39-c73bf92954c8"
+          description: "Unique identifier for this ingridient"
+    IngridientObject:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Ingridient'
+      properties:
+        amount:
+          type: string
+          description: "How much of this specific ingridient is needed for this recipe"
+          example: "25g or half a cup"
+    StatusObject:
+      type: object
+      properties:
+        title: 
+          type: string
+          example: "All Clear"
+        body:
+          type: string
+          example: "We are fine"
+
+paths:
+  /status:
+    get:
+      tags:
+        - "Operations"
+      parameters:
+        - recipeID:
+          $ref: "#/components/parameters/recipeID"
+      responses:
+        '200':
+          description: 'Returns the current status of the API, including the version'
+          content:
+            'text/html':
+              schema:
+                $ref: '#/components/schemas/StatusObject'
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/StatusObject'
+        '500':
+          description: 'Returns the current status of the API, including the version'
+          content:
+            'text/html':
+              schema:
+                $ref: '#/components/schemas/StatusObject'
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/StatusObject'
+
+  /recipe:
+    get:
+      tags:
+        - "Recipes"
+      responses:
+        '200':
+          description: 'Returns the current status of the API, including the version'
+          content:
+            'application/json':
+              schema: 
+                $ref: '#/components/schemas/Recipe'
+  /search:
+    post:
+      tags:
+        - "Recipes"
+      description: Search for a few recipes'
+      requestBody:
+        $ref: '#/components/requestBodies/searchReqBody'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipe'
+      
