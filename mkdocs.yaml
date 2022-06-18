@@ -1,7 +1,8 @@
-site_name: 'My Docs'
+site_name: 'Docs Demo'
 
 nav:
   - Home: index.md
+    Contribute: contribute.md
 
 plugins:
   - techdocs-core
