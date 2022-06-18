@@ -1,22 +1,22 @@
-#---
-#apiVersion: backstage.io/v1alpha1
-#kind: User
-#metadata:
-#  name: josef
-#spec:
-#  profile:
-#    displayName: Josef Auer
-#    email: josef.auer@example.com
-#    picture: https://example.com/staff/jenny-with-party-hat.jpeg
-#  memberOf: [core-team, employees]
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Domain
+kind: User
 metadata:
-  name: users
-  description: Everything about recipes
+  name: josef
 spec:
-  owner: core-team
+  profile:
+    displayName: Josef Auer
+    email: josef.auer@example.com
+    picture: https://example.com/staff/jenny-with-party-hat.jpeg
+  memberOf: [core-team, employees]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Domain
+#metadata:
+#  name: users
+#  description: Everything about recipes
+#spec:
+#  owner: core-team
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Group
