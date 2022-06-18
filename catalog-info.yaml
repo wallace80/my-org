@@ -9,14 +9,14 @@
 #    email: josef.auer@example.com
 #    picture: https://example.com/staff/jenny-with-party-hat.jpeg
 #  memberOf: [core-team, employees]
-#---
-#apiVersion: backstage.io/v1alpha1
-#kind: Domain
-#metadata:
-#  name: users
-#  description: Everything about recipes
-#spec:
-#  owner: core-team
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: users
+  description: Everything about recipes
+spec:
+  owner: core-team
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Group
